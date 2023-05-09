@@ -128,7 +128,6 @@
     socket.on('connect', async ()=>{
         let data = await requestActualPoints();
         if(!data) return;
-        console.log(data);
         pointsA.innerText = data.pointsA;
         pointsB.innerHTML = data.pointsB;
     })
