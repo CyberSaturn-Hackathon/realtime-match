@@ -37,7 +37,7 @@ SaturnSports é uma aplicação desenvolvida durante o hackathon da Etec de Peru
 
 ## 🚀 Tecnologias
 
-TAs principais tecnologias utilizadas foram:
+As principais tecnologias utilizadas foram:
 
 - [Node.js](https://nodejs.org/en/)
 - [Express](https://expressjs.com/pt-br/)
