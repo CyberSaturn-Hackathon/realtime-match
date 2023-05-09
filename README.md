@@ -29,7 +29,7 @@
 - [Iniciando o projeto](#iniciando-o-projeto)
   - [Requisitos](#requisitos)
   - [Instalando e configurando o projeto](#instalando-e-configurando-o-projeto)
-- [Rotas](#rotas)
+- [Rotas](#-rotas)
 
 ## 👀 Geral
 
