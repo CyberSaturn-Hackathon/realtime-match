@@ -30,3 +30,5 @@ class MatchRepository {
 		}
 	}
 }
+
+module.exports = MatchRepository;

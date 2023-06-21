@@ -24,3 +24,5 @@ knex.schema
 	.catch((err) => {
 		console.error(err);
 	});
+
+module.exports = knex;

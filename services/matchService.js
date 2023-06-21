@@ -42,3 +42,5 @@ class MatchService {
 		}
 	}
 }
+
+module.exports = MatchService;
