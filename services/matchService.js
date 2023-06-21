@@ -33,6 +33,12 @@ class MatchService {
 				message: 'Registro de partida criado com sucesso.',
 				data: { ...response },
 			};
-		} catch {}
+		} catch (e) {
+			return {
+				code: 500,
+				message: 'Erro interno!',
+				data: { error: true, content: e },
+			};
+		}
 	}
 }
