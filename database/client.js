@@ -6,7 +6,7 @@ const knex = require('knex')({
 });
 
 knex.schema
-	.createTableIfNotExists('match', function (table) {
+	.createTableIfNotExists('matchs', function (table) {
 		table.increments('id').primary();
 		table.string('teamA');
 		table.string('teamB');
