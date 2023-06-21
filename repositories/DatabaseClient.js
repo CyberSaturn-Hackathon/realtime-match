@@ -1,4 +1,4 @@
-class MatchModel {
+class MatchRepository {
 	#db;
 	constructor(databaseClient) {
 		this.#db = databaseClient;
