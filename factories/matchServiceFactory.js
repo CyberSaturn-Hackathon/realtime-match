@@ -8,4 +8,4 @@ const createMatchService = () => {
 	return matchService;
 };
 
-module.exports = matchService;
+module.exports = createMatchService;
