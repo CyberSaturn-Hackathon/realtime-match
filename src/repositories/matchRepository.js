@@ -32,6 +32,14 @@ class MatchRepository {
 			throw e;
 		}
 	}
+
+	async findById(id) {
+		try {
+			return await this.#db('matches').where({ id }).first();
+		} catch (e) {
+			throw e;
+		}
+	}
 }
 
 module.exports = MatchRepository;
