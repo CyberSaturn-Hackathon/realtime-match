@@ -16,15 +16,18 @@ class MatchRepository {
 				modality,
 			} = data;
 
-			return await this.#db('matchs').insert({
-				teamA,
-				teamB,
-				pointsA,
-				pointsB,
-				tournament,
-				place,
-				modality,
-			});
+			return await this.#db('matchs').insert(
+				{
+					teamA,
+					teamB,
+					pointsA,
+					pointsB,
+					tournament,
+					place,
+					modality,
+				},
+				'*'
+			);
 		} catch (e) {
 			throw e;
 		}
