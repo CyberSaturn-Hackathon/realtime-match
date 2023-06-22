@@ -13,13 +13,14 @@ knex.schema.hasTable('matches').then((exists) => {
 				table.increments('id').primary();
 				table.string('teamA');
 				table.string('teamB');
-				table.integer('pointsA');
-				table.integer('pointsB');
+				table.integer('pointsA').defaultTo(0);
+				table.integer('pointsB').defaultTo(0);
 				table.string('tournament');
 				table.string('place');
 				table.string('modality');
-				table.timestamp('created_at').defaultTo(knex.fn.now());
-				table.timestamp('updated_at').defaultTo(knex.fn.now());
+				table.boolean('isActive').defaultTo(true);
+				table.timestamp('createdAt').defaultTo(knex.fn.now());
+				table.timestamp('updatedAt').defaultTo(knex.fn.now());
 			})
 			.then(() => {
 				knex.destroy();
