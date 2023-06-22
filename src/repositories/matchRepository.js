@@ -16,7 +16,7 @@ class MatchRepository {
 				modality,
 			} = data;
 
-			return await this.#db('matchs').insert(
+			return await this.#db('matches').insert(
 				{
 					teamA,
 					teamB,
