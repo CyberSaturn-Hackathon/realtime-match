@@ -1,4 +1,4 @@
-const databaseClient = require('../database/client');
+const databaseClient = require('../../database/client');
 const MatchRepository = require('../repositories/matchRepository');
 const MatchService = require('../services/matchService');
 
