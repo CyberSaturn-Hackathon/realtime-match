@@ -34,10 +34,11 @@ class MatchService {
 				data: { ...response },
 			};
 		} catch (e) {
+			console.log(e);
 			return {
 				code: 500,
 				message: 'Erro interno!',
-				data: { error: true, content: e },
+				data: { error: true, content: String(e) },
 			};
 		}
 	}
