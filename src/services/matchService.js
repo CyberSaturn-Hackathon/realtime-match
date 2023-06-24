@@ -34,7 +34,6 @@ export class MatchService {
         data: { ...response },
       };
     } catch (e) {
-      console.log(e);
       return {
         code: 500,
         message: 'Erro interno!',
