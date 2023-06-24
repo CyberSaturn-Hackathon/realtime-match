@@ -41,5 +41,22 @@ export class MatchService {
       };
     }
   }
+
+  async findAll() {
+    try {
+      const response = await this.#repository.findAll();
+      return {
+        code: 200,
+        message: 'Partidas encontradas com sucesso',
+        data: { ...response },
+      }
+    } catch (e) {
+      return {
+        code: 500,
+        message: 'Erro interno!',
+        data: { error: true, content: String(e) }
+      };
+    }
+  }
 }
 
