@@ -12,44 +12,44 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 io.on('connection', (socket) => {
-	socket.on('sendPoints', (res) => {
-		const { pointsA, pointsB } = res;
-		SESSION_POINTS_DATA = { pointsA, pointsB };
-		io.emit('showPoints', res);
-	});
+  socket.on('sendPoints', (res) => {
+    const { pointsA, pointsB } = res;
+    SESSION_POINTS_DATA = { pointsA, pointsB };
+    io.emit('showPoints', res);
+  });
 });
 
 app.get('/', (_, res) => {
-	res.render('index');
+  return res.render('index');
 });
 
 app.get('/create/match', (_, res) => {
-	return res.render('admin/createMatch');
+  return res.render('admin/createMatch');
 });
 
 app.post('/save/match', async (req, res) => {
-	const { teamA, teamB, tournament, place, modality } = req.body;
-	const result = await matchService.create({
-		teamA,
-		teamB,
-		tournament,
-		place,
-		modality,
-	});
+  const { teamA, teamB, tournament, place, modality } = req.body;
+  const result = await matchService.create({
+    teamA,
+    teamB,
+    tournament,
+    place,
+    modality,
+  });
 
-	const { data, message, code } = result;
+  const { data, message, code } = result;
 
-	res.status(code).json({ message, data });
+  return res.status(code).json({ message, data });
 });
 
 app.get('/adm', (_, res) => {
-	res.render('admin');
+  return res.render('admin');
 });
 
 app.get('/session/points', (_, res) => {
-	return res.json(SESSION_POINTS_DATA);
+  return res.json(SESSION_POINTS_DATA);
 });
 
 http.listen(port, () => {
-	console.log('Server is running in http://localhost:' + port);
+  console.log('Server is running in http://localhost:' + port);
 });
