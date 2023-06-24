@@ -1,6 +1,7 @@
 import express from 'express';
 import { createServer } from 'http';
 import { Server } from 'socket.io';
+import { createMatchService } from './factories/matchServiceFactory.js';
 
 const app = express();
 const http = createServer(app);
@@ -8,7 +9,7 @@ const io = new Server(http);
 const port = 3000;
 let SESSION_POINTS_DATA = null;
 
-const matchService = require('./factories/matchServiceFactory')();
+const matchService = createMatchService();
 
 app.set('view engine', 'ejs');
 app.use(express.json());

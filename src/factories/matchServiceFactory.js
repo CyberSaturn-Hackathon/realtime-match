@@ -1,11 +1,11 @@
-const databaseClient = require('../../database/client');
-const MatchRepository = require('../repositories/matchRepository');
-const MatchService = require('../services/matchService');
+import { client } from '../../database/client.js';
+import { MatchRepository } from '../repositories/matchRepository.js';
+import { MatchService } from '../services/matchService.js';
 
 const createMatchService = () => {
-	const matchRepository = new MatchRepository(databaseClient);
-	const matchService = new MatchService(matchRepository);
-	return matchService;
+  const matchRepository = new MatchRepository(client);
+  const matchService = new MatchService(matchRepository);
+  return matchService;
 };
 
-module.exports = createMatchService;
+export { createMatchService };
