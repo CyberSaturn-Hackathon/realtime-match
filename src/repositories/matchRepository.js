@@ -40,5 +40,13 @@ export class MatchRepository {
       throw e;
     }
   }
+
+  async findAll() {
+    try {
+      return await this.#db('matches').select('*');
+    } catch (e) {
+      throw e;
+    }
+  }
 }
 
