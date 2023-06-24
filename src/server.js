@@ -19,11 +19,11 @@ io.on('connection', (socket) => {
 	});
 });
 
-app.get('/', (req, res) => {
+app.get('/', (_, res) => {
 	res.render('index');
 });
 
-app.get('/create/match', (req, res) => {
+app.get('/create/match', (_, res) => {
 	return res.render('admin/createMatch');
 });
 
@@ -42,11 +42,11 @@ app.post('/save/match', async (req, res) => {
 	res.status(code).json({ message, data });
 });
 
-app.get('/adm', (req, res) => {
+app.get('/adm', (_, res) => {
 	res.render('admin');
 });
 
-app.get('/session/points', (req, res) => {
+app.get('/session/points', (_, res) => {
 	return res.json(SESSION_POINTS_DATA);
 });
 
