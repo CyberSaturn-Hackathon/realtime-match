@@ -36,7 +36,8 @@ const configureHTTPServer = (app)=>{
   });
 
   app.get('/session/points', (_, res) => {
-    return res.json(SESSION_POINTS_DATA);
+    if(!req.session.pointsData) req.session.pointsData = 0;
+    return res.json(req.session.pointsData);
   });
 }
 
