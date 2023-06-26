@@ -1,5 +1,5 @@
 import express from 'express';
-import { createMatchService } from './factories/matchServiceFactory.js';
+import { createMatchService } from '../factories/matchServiceFactory.js';
 
 const matchService = createMatchService();
 

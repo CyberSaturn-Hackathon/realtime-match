@@ -1,4 +1,4 @@
-import { createMatchService } from './factories/matchServiceFactory.js';
+import { createMatchService } from '../factories/matchServiceFactory.js';
 
 const matchService = createMatchService();
 let SESSION_POINTS_DATA = null;
