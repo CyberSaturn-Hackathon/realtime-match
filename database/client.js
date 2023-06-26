@@ -21,8 +21,8 @@ client.schema.hasTable('matches').then((exists) => {
         table.string('place');
         table.string('modality');
         table.boolean('isActive').defaultTo(true);
-        table.timestamp('createdAt').defaultTo(knex.fn.now());
-        table.timestamp('updatedAt').defaultTo(knex.fn.now());
+        table.timestamp('createdAt').defaultTo(client.fn.now());
+        table.timestamp('updatedAt').defaultTo(client.fn.now());
       })
       .then(() => {
         client.destroy();
