@@ -3,7 +3,7 @@ import { createMatchService } from './factories/matchServiceFactory.js';
 
 const matchService = createMatchService();
 
-export function configureHTTPServer(app) {
+const configureHTTPServer = (app)=>{
   app.set('view engine', 'ejs');
   app.use(express.json());
   app.use(express.urlencoded({ extended: false }));
@@ -39,3 +39,5 @@ export function configureHTTPServer(app) {
     return res.json(SESSION_POINTS_DATA);
   });
 }
+
+export { configureHTTPServer };
