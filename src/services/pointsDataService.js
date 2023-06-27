@@ -15,4 +15,16 @@ export class pointsDataService {
 			return { error: true, content: e };
 		}
 	}
+
+	async findOne(id) {
+		try {
+			const response = await this.#repository.findOne(id);
+			return {
+				data: { ...response },
+				message: 'Ponto encontrado',
+			};
+		} catch (e) {
+			return { error: true, content: e };
+		}
+	}
 }

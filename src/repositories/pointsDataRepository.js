@@ -15,11 +15,22 @@ export class PointsDataRepository {
 
 	async findAll() {
 		try {
-			const data = await this.#fs.readFile(this.#filePath, {
-				encoding: 'utf-8',
-			});
+			const data = JSON.parse(
+				await this.#fs.readFile(this.#filePath, {
+					encoding: 'utf-8',
+				})
+			);
 
 			return data;
+		} catch (e) {
+			throw e;
+		}
+	}
+
+	async findOne(id) {
+		try {
+			const data = await this.findAll();
+			return data[id];
 		} catch (e) {
 			throw e;
 		}
