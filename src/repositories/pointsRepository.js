@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
-export class PointsDataRepository {
+export class PointsRepository {
 	#fs;
 	#filePath = path.join(__dirname, '../../database/points/pointsData.json');
 

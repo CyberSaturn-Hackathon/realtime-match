@@ -1,4 +1,4 @@
-export class PointsDataService {
+export class PointsService {
 	#repository;
 	constructor(pointsDataRepository) {
 		this.#repository = pointsDataRepository;
