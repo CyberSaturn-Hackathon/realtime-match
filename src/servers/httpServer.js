@@ -2,7 +2,7 @@ import express from 'express';
 import { createMatchService } from '../factories/matchServiceFactory.js';
 import { createPointsService } from '../factories/pointsServiceFactory.js';
 
-const pointsService = new createPointsService();
+const pointsService = createPointsService();
 const matchService = createMatchService();
 
 const configureHTTPServer = (app) => {
