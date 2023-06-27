@@ -13,14 +13,17 @@ export class PointsDataRepository {
 		this.#fs = fs.promises;
 	}
 
+	async #readFile() {
+		return JSON.parse(
+			await this.#fs.readFile(this.#filePath, {
+				encoding: 'utf-8',
+			})
+		);
+	}
+
 	async findAll() {
 		try {
-			const data = JSON.parse(
-				await this.#fs.readFile(this.#filePath, {
-					encoding: 'utf-8',
-				})
-			);
-
+			const data = this.#readFile();
 			return data;
 		} catch (e) {
 			throw e;
