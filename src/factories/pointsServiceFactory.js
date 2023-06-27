@@ -1,5 +1,5 @@
 import { PointsRepository } from '../repositories/pointsRepository.js';
-import { PointsService } from '../services/pointsDataService.js';
+import { PointsService } from '../services/pointsService.js';
 
 const createPointsService = () => {
 	const repository = new PointsRepository();
