@@ -44,4 +44,15 @@ export class PointsRepository {
 			throw e;
 		}
 	}
+
+	async create(key, value) {
+		try {
+			const data = await this.#readFile();
+			data[key] = value;
+			await this.#writeFile(data);
+			return true;
+		} catch (e) {
+			throw e;
+		}
+	}
 }
