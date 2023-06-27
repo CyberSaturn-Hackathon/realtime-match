@@ -21,6 +21,12 @@ export class PointsRepository {
 		);
 	}
 
+	async #writeFile(content) {
+		return await this.#fs.writeFile(this.#filePath, content, {
+			encoding: 'utf-8',
+		});
+	}
+
 	async findAll() {
 		try {
 			const data = this.#readFile();
