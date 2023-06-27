@@ -40,4 +40,28 @@ export class PointsService {
 			return { error: true, content: e, code: 500 };
 		}
 	}
+
+	async create(id, pointsA, pointsB) {
+		try {
+			if (isNaN(id))
+				return {
+					error: true,
+					content: 'Id is not a number',
+					code: 400,
+				};
+
+			const response = await this.#repository.create(id, {
+				pointsA,
+				pointsB,
+			});
+
+			return {
+				data: response,
+				message: 'Pontos criados',
+				code: 201,
+			};
+		} catch (e) {
+			return { error: true, content: e, code: 500 };
+		}
+	}
 }
