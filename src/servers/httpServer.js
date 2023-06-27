@@ -37,10 +37,10 @@ const configureHTTPServer = (app) => {
 		return res.render('admin');
 	});
 
-	app.get('/session/points/:id', async (_, res) => {
+	app.get('/session/points/:id', async (req, res) => {
 		const result = await pointsService.findOne(req.params.id);
 		const { code, data } = result;
-		return res.status(code).json(...data);
+		return res.status(code).json(data);
 	});
 };
 
