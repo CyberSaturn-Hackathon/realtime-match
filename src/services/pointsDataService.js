@@ -1,4 +1,4 @@
-export class pointsDataService {
+export class PointsDataService {
 	#repository;
 	constructor(pointsDataRepository) {
 		this.#repository = pointsDataRepository;
@@ -18,7 +18,12 @@ export class pointsDataService {
 
 	async findOne(id) {
 		try {
+			if (isNaN(id)) return { error: true, content: 'Value is NaN' };
+
 			const response = await this.#repository.findOne(id);
+
+			if (!response) return { error: true, content: 'Not found.' };
+
 			return {
 				data: { ...response },
 				message: 'Ponto encontrado',
