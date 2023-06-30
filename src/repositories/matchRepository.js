@@ -48,5 +48,13 @@ export class MatchRepository {
       throw e;
     }
   }
+
+  async delete(id){
+    try{
+      return await this.#db('matches').where({id}).delete();
+    }catch(e){
+      throw e;
+    }
+  } 
 }
 

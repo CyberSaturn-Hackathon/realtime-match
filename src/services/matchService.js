@@ -58,5 +58,30 @@ export class MatchService {
       };
     }
   }
+
+  async delete(id) {
+    try {
+      if (isNaN(id))
+        return {
+          error: true,
+          content: 'Value is not a number',
+          code: 400,
+        };
+
+      await this.#repository.delete(id);
+
+      return {
+        code: 204,
+        message: 'Partida deletada.',
+        data: {}
+      }
+    } catch (e) {
+      return {
+        code: 500,
+        message: 'Erro interno!',
+        data: { error: true, content: String(e) }
+      };
+    }
+  }
 }
 
