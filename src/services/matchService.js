@@ -59,6 +59,30 @@ export class MatchService {
     }
   }
 
+  async findOne(id) {
+    try {
+      const response = await this.#repository.findOne(id);
+
+      if (!response) return {
+        code: 404,
+        message: 'Partida não encontrada',
+        data: {}
+      }
+
+      return {
+        code: 200,
+        message: 'Partida encontrada com sucesso',
+        data: { ...response },
+      }
+    } catch (e) {
+      return {
+        code: 500,
+        message: 'Erro interno!',
+        data: { error: true, content: String(e) }
+      };
+    }
+  }
+
   async update(id, data) {
     try {
       if (isNaN(id))
