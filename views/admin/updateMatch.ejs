@@ -35,8 +35,24 @@
 				<input type="text" class="form-control" id="modality" name="modality" required
           value="<%=match.modality%>"
         >
-			</div>
-
+			</div> 
+        <div class="col-md-6">
+      	  <label for="isActive" class="form-label">Está ativa (acontecendo no momento):</label>
+	        <div>
+		        <label for="isActiveYes">
+			        <input type="radio" id="isActiveYes" name="isActive" value="1" required
+                <%if(match.isActive){%>checked<%}%>
+              > Sim
+		        </label>
+	        </div>
+	      <div>
+		      <label for="isActiveNo">
+			      <input type="radio" id="isActiveNo" name="isActive" value="0" required
+              <%if(!match.isActive){%>checked<%}%>
+            > Não
+		      </label>
+	      </div>
+      </div>
 			<div class="button-area">
 				<button id="refreshPoints" class="btn btn-success">
 					Atualizar Partida

@@ -26,7 +26,19 @@
 				<label for="modality" class="form-label">Modalidade</label>
 				<input type="text" class="form-control" id="modality" name="modality" required>
 			</div>
-
+        <div class="col-md-6">
+      	  <label for="isActive" class="form-label">Está ativa (acontecendo no momento):</label>
+	        <div>
+		        <label for="isActiveYes">
+			        <input type="radio" id="isActiveYes" name="isActive" value="1" required> Sim
+		        </label>
+	        </div>
+	      <div>
+		      <label for="isActiveNo">
+			      <input type="radio" id="isActiveNo" name="isActive" value="0" required> Não
+		      </label>
+	      </div>
+      </div>
 			<div class="button-area">
 				<button id="refreshPoints" class="btn btn-success">
 					Cadastrar Partida
