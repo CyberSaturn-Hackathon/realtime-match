@@ -63,8 +63,11 @@ export class MatchService {
     try {
       if (isNaN(id))
         return {
-          error: true,
-          content: 'Value is not a number',
+          data: {
+            error: true,
+            content: 'Value is not a number',
+          },
+          message: 'Id não é um número',
           code: 400,
         };
 
