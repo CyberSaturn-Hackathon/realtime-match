@@ -59,6 +59,26 @@ export class MatchService {
     }
   }
 
+  async update(id, data) {
+    try {
+      if (isNaN(id))
+        return {
+          data: {
+            error: true,
+            content: 'Value is not a number',
+          },
+          message: 'Id não é um número',
+          code: 400,
+        };
+    } catch (e) {
+      return {
+        code: 500,
+        message: 'Erro interno!',
+        data: { error: true, content: String(e) }
+      };
+    }
+  }
+
   async delete(id) {
     try {
       if (isNaN(id))
