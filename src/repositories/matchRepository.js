@@ -49,6 +49,15 @@ export class MatchRepository {
     }
   }
 
+  async findOne(id) {
+    try {
+      return await this.#db('matches').where({ id }).select();
+    } catch (e) {
+      throw e;
+    }
+  }
+
+
   async update(id, data) {
     try {
       return await this.#db('matches')
