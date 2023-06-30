@@ -41,6 +41,14 @@ const configureHTTPServer = (app) => {
     return res.status(code).json(data);
   });
 
+  app.delete('/delete/match/:id', async (req, res) => {
+    const id = req.params.id;
+
+    const result = await matchService.delete(id);
+    const { code, data } = result;
+    return res.status(code).json(data);
+  })
+
   app.get('/adm', (_, res) => {
     return res.render('admin');
   });
