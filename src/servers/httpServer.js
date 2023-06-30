@@ -34,6 +34,15 @@ const configureHTTPServer = (app) => {
     return res.render('admin/createMatch');
   });
 
+  app.get('/update/match/:id', async (req, res) => {
+    const result = await matchService.findOne(req.params.id);
+
+    const { code, data } = result;
+
+    return res.status(code)
+      .render('admin/updateMatch', { match: data[0] });
+  });
+
   app.post('/save/match', async (req, res) => {
     const { teamA, teamB, tournament, place, modality } = req.body;
     const result = await matchService.create({
@@ -49,7 +58,7 @@ const configureHTTPServer = (app) => {
     return res.status(code).json({ message, data });
   });
 
-  app.patch('/update/match/:id', async (req, res) => {
+  app.post('/update/match/:id', async (req, res) => {
     const id = req.params.id;
 
     const result = await matchService.update(id, { ...req.body });

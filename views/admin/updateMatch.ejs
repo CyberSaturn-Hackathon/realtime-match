@@ -1,0 +1,47 @@
+<%- include ('../partials/header.ejs') %>
+	<body data-bs-theme="dark">
+		<header class="header">
+			<h3>
+				<span style="color: rgb(84, 255, 5)">Atualizar</span> Partida.</span>
+			</h3>
+		</header>
+		<form class="row g-3" method="POST" action="/update/match/<%=match.id%>">
+			<div class="col-md-6">
+				<label for="teamA" class="form-label">Time A</label>
+				<input type="text" class="form-control" id="teamA" name="teamA" required
+          value="<%=match.teamA%>"
+        >
+			</div>
+			<div class="col-md-6">
+				<label for="teamB" class="form-label">Time B</label>
+				<input type="text" class="form-control" id="teamB" name="teamB" required
+          value="<%=match.teamB%>"
+        >
+			</div>
+			<div class="col-md-6">
+				<label for="tournament" class="form-label">Nome do Torneio</label>
+				<input type="text" class="form-control" id="tournament" name="tournament" required
+          value="<%=match.tournament%>"
+        >
+			</div>
+			<div class="col-md-6">
+				<label for="place" class="form-label">Local da partida</label>
+				<input type="text" class="form-control" id="place" name="place" required
+          value="<%=match.place%>"
+        >
+			</div>
+			<div class="col-md-6">
+				<label for="modality" class="form-label">Modalidade</label>
+				<input type="text" class="form-control" id="modality" name="modality" required
+          value="<%=match.modality%>"
+        >
+			</div>
+
+			<div class="button-area">
+				<button id="refreshPoints" class="btn btn-success">
+					Atualizar Partida
+				</button>
+			</div>	
+		</form>		
+	</body>
+<%- include ('../partials/footer.ejs') %>
