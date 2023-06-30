@@ -33,7 +33,7 @@ const configureHTTPServer = (app) => {
     return res.status(code).json({ message, data });
   });
 
-  app.post('/update/match/:id', async (req, res) => {
+  app.patch('/update/match/:id', async (req, res) => {
     const id = req.params.id;
 
     const result = await matchService.update(id, { ...req.body });
