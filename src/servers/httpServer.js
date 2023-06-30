@@ -14,6 +14,22 @@ const configureHTTPServer = (app) => {
     return res.render('index');
   });
 
+  app.get('/match/:id', async (req, res) => {
+    const id = req.params.id;
+
+    const result = await matchService.findOne(id);
+    const { code, data } = result;
+
+    return res.status(code).json(data);
+  });
+
+  app.get('/matches', async (_, res) => {
+    const result = await matchService.findAll();
+    const { code, data } = result;
+
+    return res.status(code).json(data);
+  });
+
   app.get('/create/match', (_, res) => {
     return res.render('admin/createMatch');
   });

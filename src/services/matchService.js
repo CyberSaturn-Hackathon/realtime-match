@@ -9,11 +9,11 @@ export class MatchService {
       const { teamA, teamB, tournament, place, modality } = data;
 
       if (
-        !teamA.trim() ||
-        !teamB.trim() ||
-        !tournament.trim() ||
-        !place.trim() ||
-        !modality.trim()
+        !teamA?.trim() ||
+        !teamB?.trim() ||
+        !tournament?.trim() ||
+        !place?.trim() ||
+        !modality?.trim()
       ) {
         return {
           code: 400,

@@ -43,7 +43,7 @@ export class MatchRepository {
 
   async findAll() {
     try {
-      return await this.#db('matches').select('*');
+      return await this.#db('matches').select();
     } catch (e) {
       throw e;
     }
@@ -51,7 +51,10 @@ export class MatchRepository {
 
   async findOne(id) {
     try {
-      return await this.#db('matches').where({ id }).select();
+      console.log(id)
+      const result = await this.#db('matches').where('id', id);
+      console.log(result);
+      return result;
     } catch (e) {
       throw e;
     }
