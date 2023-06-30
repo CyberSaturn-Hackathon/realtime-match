@@ -49,12 +49,22 @@ export class MatchRepository {
     }
   }
 
-  async delete(id){
-    try{
-      return await this.#db('matches').where({id}).delete();
-    }catch(e){
+  async update(id, data) {
+    try {
+      return await this.#db('matches')
+        .where({ id })
+        .update(data);
+    } catch (e) {
       throw e;
     }
-  } 
+  }
+
+  async delete(id) {
+    try {
+      return await this.#db('matches').where({ id }).delete();
+    } catch (e) {
+      throw e;
+    }
+  }
 }
 
