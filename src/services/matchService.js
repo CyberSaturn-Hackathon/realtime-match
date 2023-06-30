@@ -94,6 +94,22 @@ export class MatchService {
           message: 'Id não é um número',
           code: 400,
         };
+
+      let response = await this.findOne(id);
+
+      if (response.code != 200)
+        return {
+          ...response
+        }
+
+      response = await this.#repository.update(id, data);
+
+      return {
+        code: 204,
+        message: 'Updated.',
+        data: { ...response }
+      }
+
     } catch (e) {
       return {
         code: 500,
