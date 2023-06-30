@@ -66,7 +66,7 @@ const configureHTTPServer = (app) => {
     return res.status(code).json(data);
   });
 
-  app.delete('/delete/match/:id', async (req, res) => {
+  app.post('/delete/match/:id', async (req, res) => {
     const id = req.params.id;
 
     const result = await matchService.delete(id);
