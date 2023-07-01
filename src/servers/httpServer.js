@@ -27,7 +27,7 @@ const configureHTTPServer = (app) => {
     const result = await matchService.findAll();
     const { code, data } = result;
 
-    return res.status(code).json(data);
+    return res.status(code).render('admin/index', { matches: data });
   });
 
   app.get('/create/match', (_, res) => {
@@ -66,8 +66,8 @@ const configureHTTPServer = (app) => {
     return res.status(code).json(data);
   });
 
-  app.post('/delete/match/:id', async (req, res) => {
-    const id = req.params.id;
+  app.post('/delete/match/', async (req, res) => {
+    const id = req.body.id;
 
     const result = await matchService.delete(id);
     const { code, data } = result;

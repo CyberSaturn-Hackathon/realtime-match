@@ -1,0 +1,59 @@
+<%- include ('../partials/header.ejs') %>
+<body data-bs-theme="dark">
+	<div class="container">
+		<hr>
+		<h2>Partidas</h2>
+		<hr>
+		<a class="btn btn-success" href="/create/match">Criar nova partida</a>
+		<hr>
+  <div class="table-responsive">
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Time A</th>
+					<th>Time B</th>
+					<th>Pontos A</th>
+					<th>Pontos B</th>
+					<th>Torneio</th>
+					<th>Local</th>
+					<th>Modalidade</th>
+					<th>Status</th>
+					<th>Ações</th>
+				</tr>
+			</thead>
+			<tbody>
+				<% Object.keys(matches).forEach((key) => {
+					const match = matches[key];
+					const isActive = match.isActive === 1;
+				%>
+					<tr>
+						<td><%= match.id %></td>
+						<td><%= match.teamA %></td>
+						<td><%= match.teamB %></td>
+						<td><%= match.pointsA %></td>
+						<td><%= match.pointsB %></td>
+						<td><%= match.tournament %></td>
+						<td><%= match.place %></td>
+						<td><%= match.modality %></td>
+						<td>
+							<% if (isActive) { %>
+								<span class="text-success">Está ativa</span>
+							<% } else { %>
+								<span class="text-primary">Está inativa</span>
+							<% } %>
+						</td>
+						<td>
+							<a href="/update/match/<%= match.id %>" class="btn btn-warning">Editar</a>
+							<form method="POST" action="/delete/match" style="display:inline;" onsubmit="confirmDeletion(event, this)">
+								<input type="number" name="id" hidden value="<%= match.id %>">
+								<button class="btn btn-danger">Deletar</button>
+							</form>
+						</td>
+					</tr>
+				<% }); %>
+			</tbody>
+		</table>
+  </div>
+</div> 
+<%- include ('../partials/footer.ejs') %>
